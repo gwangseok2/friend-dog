@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+// 카카오 스크립트 추가
+import KakaoScript from "@/app/utils/kakaoScript";
+
+// 카카오 로그인 버튼
+import KakaoLoginButton from "@/app/components/KakaoLoginBtn";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -26,7 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <KakaoLoginButton />
         {children}
+
+        <KakaoScript />
       </body>
     </html>
   );
